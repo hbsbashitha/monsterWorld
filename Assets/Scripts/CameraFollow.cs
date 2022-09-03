@@ -15,8 +15,10 @@ public class CameraFollow : MonoBehaviour
     {
 
         
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player").transform;
         tempPosition = transform.position;
+
+        // Debug.Log(GameManager.instance.CharIndex);
     }
 
     // Update is called once per frame
