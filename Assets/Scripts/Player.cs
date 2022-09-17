@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float moveForce = 10f;
     [SerializeField]
-    private float jumpForce = 10f;
+    private float jumpForce = 11f;
 
     private float movementX;
     private float movementY;
@@ -20,6 +21,11 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private string GROUND_TAG="Ground";
     private string ENEMY_TAG="Enemy";
+    private string COIN_TAG="Coin";
+
+    // public static int scoreValue = 0;
+    // public Text2D score;
+
 
     private void Awake(){
         myBody = GetComponent<Rigidbody2D>();
@@ -42,6 +48,7 @@ public class Player : MonoBehaviour
     }
 
     
+
     void FixedUpdate(){
         
     }
@@ -53,6 +60,7 @@ public class Player : MonoBehaviour
         transform.position += new Vector3( movementX, 0f, 0f)*moveForce*Time.deltaTime;
        
     } 
+
 
     //function for Animation
     void AnimationPlayer(){
@@ -85,11 +93,19 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == ENEMY_TAG){
             Destroy(gameObject);
         }
+        // if(collision.gameObject.tag == HEART_TAG){
+        //     Destroy(collision.gameObject);
+        // }
     }
 
     private void OnTriggerEnter2D (Collider2D collision) {
         if(collision.gameObject.tag == ENEMY_TAG){
             Destroy(gameObject);
         }
+        if(collision.gameObject.tag == COIN_TAG){
+            Destroy(collision.gameObject);
+        }
+           
+        
     }
 }

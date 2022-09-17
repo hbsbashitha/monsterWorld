@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Heart
+  - score
+  - Coin
   layers:
   - Default
   - TransparentFX

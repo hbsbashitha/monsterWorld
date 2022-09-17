@@ -28,13 +28,14 @@ public class CameraFollow : MonoBehaviour
             return;
         }
         tempPosition.x = player.position.x;
+        tempPosition.y=player.position.y+6.0f;
         
-        if(tempPosition.x > maxX){
-            tempPosition.x = maxX;
-        }
-        if(tempPosition.x < minX){
-            tempPosition.x = minX;
-        }
+        // if(tempPosition.x > maxX){
+        //     tempPosition.x = maxX;
+        // }
+        // if(tempPosition.x < minX){
+        //     tempPosition.x = minX;
+        // }
         transform.position = tempPosition;
     }
 
