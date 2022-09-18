@@ -90,8 +90,18 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == GROUND_TAG){
             isGrounded = true;
         }
-        if(collision.gameObject.tag == ENEMY_TAG){
+        if(collision.gameObject.tag == ENEMY_TAG && Heart.HeartValue == 1){
+            Heart.HeartValue -= 1;
             Destroy(gameObject);
+            Debug.Log("des Heart: " + Heart.HeartValue);
+            
+        }
+        else if(collision.gameObject.tag == ENEMY_TAG && Heart.HeartValue > 0){
+            Heart.HeartValue -= 1;
+            Destroy(collision.gameObject);
+            Debug.Log("Heart: " + Heart.HeartValue);
+            
+            
         }
         // if(collision.gameObject.tag == HEART_TAG){
         //     Destroy(collision.gameObject);
@@ -99,8 +109,19 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D (Collider2D collision) {
-        if(collision.gameObject.tag == ENEMY_TAG){
+        if(collision.gameObject.tag == ENEMY_TAG && Heart.HeartValue == 1){
+            Heart.HeartValue -= 1;
             Destroy(gameObject);
+            Debug.Log("des Heart: " + Heart.HeartValue);
+            
+        }
+
+        else if(collision.gameObject.tag == ENEMY_TAG && Heart.HeartValue > 0){
+            Heart.HeartValue -= 1;
+            Destroy(collision.gameObject);
+            Debug.Log("Heart: " + Heart.HeartValue);
+            
+            
         }
         if(collision.gameObject.tag == COIN_TAG){
             Destroy(collision.gameObject);

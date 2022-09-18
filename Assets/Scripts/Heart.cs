@@ -5,26 +5,27 @@ using UnityEngine.UI;
 
 public class Heart : MonoBehaviour
 {
-    public static int scoreValue = 0;
-    public Text score;
+    public Text hearts;
+    public static int HeartValue = 3;
+    
 
     // Update is called once per frame
     void Update()
     {
-        score.text = "Score: " + scoreValue;
+        // score.text = "Score: " + scoreValue;
+        hearts.text = "Hearts: " + HeartValue;
     }
 
 
       private void OnTriggerEnter2D (Collider2D collision) {
         if(collision.gameObject.tag == "Player"){
 
-            scoreValue += 1;
-            score.text = "Score: " + scoreValue;
-            Debug.Log("Score: " + scoreValue);
+            HeartValue += 1;
+            hearts.text = "Hearts: " + HeartValue;
+            // score.text = "Score: " + scoreValue;
+            // Debug.Log("Heart: " + HeartValue);
             Destroy(gameObject);
         }
-        
-           
-        
+      
     }
 }

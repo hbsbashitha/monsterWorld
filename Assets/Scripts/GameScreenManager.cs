@@ -9,6 +9,7 @@ public class GameScreenManager : MonoBehaviour
     // Start is called before the first frame update
     public void RestartGame(){
        Coin.scoreValue=0;
+         Heart.HeartValue=3;
         UnityEngine.SceneManagement.SceneManager.LoadScene("gamePlay");
     }
 
